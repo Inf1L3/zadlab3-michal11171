@@ -4,17 +4,79 @@
  * and open the template in the editor.
  */
 package pl.edu.ur.POLab3;
-
 import java.util.Scanner;
-
 /**
  *
  * @author Michal
  */
-public class Github
-{
-    static void zad1()
-    {
+public class Github {
+    //Zadanie 4
+      static void zadanie4()
+      {
+    int z4;
+    do{
+    System.out.println("1 - Potega przy pomocy petli for");
+    System.out.println("2 - Potega przy pomocy rekurencja");
+    System.out.println("0.Koniec");
+    Scanner skan2= new Scanner(System.in);
+     z4=skan2.nextInt();
+      switch(z4){
+          case 1:
+              int k,n;
+              int wynik=1;
+              System.out.println("Podaj jaka liczbe chcesz potegowac:");
+              Scanner scan3= new Scanner(System.in);
+              k=scan3.nextInt();
+            System.out.println("Podaj do ktorej potegi chcesz podniesc liczbe "+k);
+              n=scan3.nextInt();
+              for(int i=1;i<=n;i++){
+              wynik=wynik*k;
+              }
+              System.out.println(wynik);
+              break;
+case 2:
+              Scanner sc = new Scanner(System.in);
+              System.out.print("Podaj liczbę ktora chcesz potegowac: " ); 
+              int liczba = sc.nextInt(); 
+              System.out.println("Podaj do ktorej potegi chcesz podniesc liczbe "+liczba);
+              int wykladnik=sc.nextInt();
+              System.out.println(liczba + " ^ "+ wykladnik + "=" + potegowanie(liczba,wykladnik));
+              break;           
+              
+              
+      }
+     
+    }while(z4!=0);
+      
+    
+}
+public static int potegowanie(int podstawa, int wykladnik) {
+if(wykladnik == 0) return 1;
+else return podstawa * potegowanie(podstawa,wykladnik-1);
+   
+}
+
+      //Zadanie 5
+      
+static void zadanie5(){
+        System.out.println("Podaj n ciagu");
+        Scanner fib=new Scanner(System.in);
+        int n=fib.nextInt();
+        System.out.println("Suma ciagu: "+ciag(n));          
+     } 
+public static int ciag(int n){
+   if(n==1 ||n==2) return 1;
+   else return ciag(n-1)+ciag(n-2);
+}
+    
+      
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+    //Zadanie 1
+        {
 
     int x;
     do{
@@ -57,7 +119,7 @@ public class Github
         Scanner xor= new Scanner(System.in);
         c=xor.nextInt();
         d=xor.nextInt();
-        if(c%2==0|| d%2==0)
+        if(c%2==0||d%2==0)
         {
             System.out.println("Co najmniej jedna z liczb jest parzysta");
         }
@@ -65,7 +127,7 @@ public class Github
         {
             System.out.println("Zadna z liczb nie jest parzysta");
         }
-        if(!(c%2==0|| d%2==0))
+        if(!(c%2==0||d%2==0))
         {
             System.out.println("Maksymalnie jedna liczba jest parzysta");
         }
@@ -79,16 +141,17 @@ public class Github
     }}
     while(x!=0);
        
-    } 
-    
-    static void zad2(){
-        int xz; 
+        
+    }
+ //Zadanie 2
+ {
+         int xz; 
  
     do{
-      System.out.println("1.Dzialanie >>");
-      System.out.println("2.Dzialanie <<");
-      System.out.println("3.Dzialanie >>>");
-      System.out.println("0.Koniec");
+      System.out.println("1 - Dzialanie >>");
+      System.out.println("2 - Dzialanie <<");
+      System.out.println("3 - Dzialanie >>>");
+      System.out.println("0 - Koniec");
       Scanner scan2= new Scanner(System.in);
       xz=scan2.nextInt();
       switch(xz){
@@ -97,37 +160,33 @@ public class Github
               System.out.println("Podaj wartosc a:");
               Scanner scan3=new Scanner(System.in);
               a= scan3.nextInt();
-              System.out.println("Twoja zmienna to: "+a);
               b= a>>1;
-              System.out.println("Twoja zmienna po przesunieciu o 1 bit w lewo to:"+b);
+              System.out.println("Zmienna "+a+" po przesunieciu o 1 bit w lewo to:"+b);
               break;
            case 2:
               int c,d;
               System.out.println("Podaj b:");
               Scanner scan4=new Scanner(System.in);
               c= scan4.nextInt();
-              System.out.println("Twoja zmienna to: "+c);
               d= c<<1;
-              System.out.println("Twoja zmienna po przesunieciu o 1 bit w lewo to:"+d);
+              System.out.println("Zmienna "+c+" po przesunieciu o 1 bit w lewo to:"+d);
               break;
            case 3:
               int e,f;
-              System.out.println("Podaj e:");
+              System.out.println("Podaj c:");
               Scanner ope=new Scanner(System.in);
               e= ope.nextInt();
-              System.out.println("Twoja zmienna to: "+e);
               f= e>>>3;
-              System.out.println("Twoja zmienna po przesunieciu o 1 bit w lewo to:"+f);
+              System.out.println("Zmienna "+e+" po przesunieciu o 1 bit w lewo to:"+f);
               break;  
           }
     }while(xz!=0);
     
     
     }
-    
-
-    static void zad3(){
-        String str = "Tekst";
+ //Zadanie 3
+ {
+         String str = "Tekst";
     char[] tab = str.toCharArray();
     for(int i=0;i<tab.length;i++)
     {
@@ -178,11 +237,11 @@ public class Github
     str3=str.substring(1,3);
     System.out.println(str3);
      
-    String str4="Ala";
-    str3=str4.replace("A","O");
+    String str4="Kot";
+    str3=str4.replace("K","W");
     System.out.println(str3);
     
-    String str5="                 Ala ma kota";
+    String str5="         Kot lubi mleko";
     String str6=str5.trim();
     System.out.println(str5);
     System.out.println(str6);
@@ -194,7 +253,7 @@ public class Github
     str5=str2.toUpperCase();
     System.out.println(str5);
     
-    String str8="tttt-aaa-kkk";  
+    String str8="kkk-oo-tttt";  
     String str7[]=str8.split("-",2);
     for(i=0;i<str7.length;i++)
         {
@@ -208,96 +267,11 @@ public class Github
             System.out.println(str9[i]);
         }
     
-    } 
-    
-    static void zad4(){
- 
-    int z4;
-    do{
-    System.out.println("1.Potegowanie for");
-    System.out.println("2.Potegowanie rekurencja");
-    System.out.println("0.Koniec");
-    Scanner odczyt= new Scanner(System.in);
-     z4=odczyt.nextInt();
-      switch(z4){
-          case 1:
-              int k,n;
-              int w=1;
-              System.out.println("Podaj podstawe i wykladnik:");
-              Scanner p= new Scanner(System.in);
-              k=p.nextInt();
-              n=p.nextInt();
-              for(int i=1;i<=n;i++){
-              w=w*k;
-              }
-              System.out.println(w);
-              break;
-          case 2:
-              Scanner sc = new Scanner(System.in);
-              System.out.print("Podaj liczbę oraz wykladnik: " ); 
-              int liczba = sc.nextInt(); 
-              int wykladnik=sc.nextInt();
-              System.out.println(liczba + " ^ "+ wykladnik + "=" + potegowanie(liczba,wykladnik));
-              break;           
-              
-              
-      }
-     
-    }while(z4!=0);
-      
-    
-}
-public static int potegowanie(int podstawa, int wykladnik) {
-if(wykladnik == 0) return 1;
-else return podstawa * potegowanie(podstawa,wykladnik-1);
-   
-}
+    }
+ Github.zadanie4();
+Github.zadanie5();
 
-    static void zad5(){
-   
-        System.out.println("Podaj n ciagu");
-        Scanner fib=new Scanner(System.in);
-        int n=fib.nextInt();
-        System.out.println("Suma ciagu: "+ciag(n));
-         
-        
-                
-     } 
-public static int ciag(int n){
-   if(n==1 ||n==2) return 1;
-   else return ciag(n-1)+ciag(n-2);
-}
 
-    static void menu(){
-        int zg;
-    do
-    {
-    System.out.println("Menu:");
-    System.out.println("Zadanie 1.");
-    System.out.println("Zadanie 2.");
-    System.out.println("Zadanie 3.");
-    System.out.println("Zadanie 4.");
-    System.out.println("Zadanie 5.");
-    System.out.println("Koniec 0.");
-    Scanner menu= new Scanner(System.in);
-    zg=menu.nextInt();
+    }
     
-        switch(zg){
-            case 1:
-                Github.zad1();
-                break;
-            case 2:
-                Github.zad2();
-                break;
-            case 3:
-                Github.zad3();
-                break;
-            case 4:    
-                Github.zad4();
-                break;
-            case 5:
-                Github.zad5();
-                
-                break; 
-    }}while (zg!=0);
-    }}
+}
